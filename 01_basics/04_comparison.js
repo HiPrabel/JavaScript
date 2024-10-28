@@ -15,15 +15,15 @@
 // console.log( "2" === 2 );
 // console.log( 2 == 2 );
 
-const id = Symbol('123')
-const anotherId = Symbol('123')
+// const id = Symbol('123')
+// const anotherId = Symbol('123')
 
 // console.log(id === anotherId);
 
-const bigNumber = 12345667891234567892123456789n;
+// const bigNumber = 12345667891234567892123456789n;
 // console.log(typeof bigNumber);
 
-console.log(undefined == null);
+// console.log(undefined == null);
 
 
 

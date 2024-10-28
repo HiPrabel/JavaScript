@@ -7,12 +7,12 @@ let  d = new Date()
 // console.log(d.toLocaleString());
 // console.log(d.toLocaleDateString());
 // console.log(d.toLocaleTimeString());
-console.log(typeof d);
+// console.log(typeof d);
 
 // let myCreatedDate = new Date(2023, 0, 12)
 // let myCreatedDate = new Date(2023, 0, 12, 14, 18, 12)
 // let myCreatedDate = new Date("2023-01-15")
-let myCreatedDate = new Date("04-14-2023")
+// let myCreatedDate = new Date("04-14-2023")`
 // console.log(myCreatedDate.toLocaleString());
 
 let t = Date.now() //for value in milliseconds
@@ -35,7 +35,7 @@ let newDate = new Date()
 //     weekday: "short",
 // }));
 
-console.log
-(newDate.toLocaleString('default',  {
-    weekday: "long",
-}));
+// console.log
+// (newDate.toLocaleString('default',  {
+//     weekday: "long",
+// }));
