@@ -4,6 +4,8 @@
 // objects literals
 
 const mySym = Symbol('key1')
+// console.log(typeof mySym);
+
 
 const example = {
     name: 'Harsh',
@@ -24,7 +26,7 @@ const example = {
 // console.log(Object.entries(example));
 // console.log(example.hasOwnProperty('present'));
 
-example.age = 21
+// example.age = 21
 // Object.freeze(example)
 // console.log(example['age']);
 // example.age = 25
@@ -39,8 +41,8 @@ example.greeting2 = function(){
     console.log(`Hello ${this.name}`);
 }
 
-// console.log(example.greeting);
-// console.log(example.greeting.toString());
+// console.log(example.greeting); // gives anonymous as content of function
+// console.log(example.greeting.toString()); //to get the content
 
 // console.log(example.greeting());
 // console.log(example.greeting2());
@@ -71,11 +73,12 @@ const obj1 = {1: 'a', 2: 'b'}
 const obj2 = {3: 'c', 4: 'd'}
 const obj3 = {3: 'e', 4: 'f'}
 
-// const obj4 = {obj1, obj2}
-// const obj4 = Object.assign({}, obj1, obj2, obj3) // empty obj since all values are getting added in obj1
-const obj4 = {...obj1, ...obj2, ...obj3}
+// const obj4 = {obj1, obj2} //does not combine
+// const obj4 = Object.assign({}, obj1, obj2, obj3) // empty obj since all values are getting added in obj1 also does not repeat
+// const obj4 = {...obj1, ...obj2, ...obj3}
 
 // console.log(obj4);
+// console.log(obj4)
 // console.log(obj1); //try by removing {}
 
 // ++++++++++++  Object Destructure  ++++++++++++++++++
@@ -86,9 +89,8 @@ const course = {
     coursePrice: 500,
 }
 
-// console.log(course.coursePrice); //lokks messy when more elements
+// console.log(course.coursePrice); //looks messy when more elements
 
-const {coursePrice : price} = course // const {originalName : newName} = objectName
-
-console.log(price);
+// const {coursePrice : price} = course // const {originalName : newName} = objectName
+// console.log(price);
 

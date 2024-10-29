@@ -1,8 +1,8 @@
-const example = [1, 2, 3, 'kunal', true, 12.8]
+// const example = [1, 2, 3, 'kunal', true, 12.8]
 
 const myArr = [0, 1, 2, 3, 4, 5]
 
-const fruits = new Array('Apple', 'Banana', 'Grapes', 'Oranges')
+// const fruits = new Array('Apple', 'Banana', 'Grapes', 'Oranges')
 
 // console.log(myArr[0]);
 
@@ -19,7 +19,7 @@ const fruits = new Array('Apple', 'Banana', 'Grapes', 'Oranges')
 // console.log(myArr.includes(4));
 // console.log(myArr.indexOf(8));
 
-const newArray = myArr.join() //convert to string
+// const newArray = myArr.join() //convert to string
 // console.log(newArray);
 // console.log(typeof newArray)
 
@@ -29,7 +29,7 @@ const newArray = myArr.join() //convert to string
 
 const array = new Array (0,1,2,3,4,5,6,7,8,9,10)
 
-const slice = array.slice(2,5)
+// const slice = array.slice(2,5)
 // console.log(`\nSliced Array: ${slice}`);
 // console.log(`After Slicing: ${array}\n`);
 
