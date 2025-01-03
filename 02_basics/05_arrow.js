@@ -57,7 +57,7 @@ const user = {
 
 // const add2 = (num1, num2) => ({username: 'kunal'})
 
-console.log(add2());
+// console.log(add2());
 
 
 
