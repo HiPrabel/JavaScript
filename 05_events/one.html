@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Images</h2>
+    <div>
+        <ul id="list">
+            <!-- download an image -->
+            <li><img width = 200px id="photoshop" src="./download.jpeg" alt="photoshop"></li>
+            <li><img width = 200px id="nature" src="./download.jpeg" alt=""></li>
+            <li><img width = 200px id="bird" src="./download.jpeg" alt=""></li>
+            <li><a style="color: aliceblue;" id="google" href="https://www.google.com/">Google</a></li>
+        </ul>
+    </div>
+</body>
+<script>
+    // document.getElementById('bird').onclick = function () {
+    //     alert('bird clicked')
+    // }
+
+    // document.getElementById('nature').addEventListener('click', function () {
+    //     alert('nature clicked')
+    // })
+
+    //type, timestamp, defaultprevented
+    //target, toElement, srcElement, currentTarget
+    //clientX, clientY, screenX, screenY
+    //altkey, ctrlkey, shiftkey, keycode
+
+    // document.getElementById('nature').addEventListener('click', function (e) {
+    //     console.log(e);
+    // }, false)
+
+    // *************** bubbling ****************  inner to outer 1st image then div
+
+    // document.getElementById('list').addEventListener('click', function (e) {
+    //     console.log("clicked inside ul");
+    //     }, false);
+
+    // document.getElementById('nature').addEventListener('click', function (e) {
+    //     console.log('owl clicked');
+    // }, false);
+
+    // *************** capturing ***************  outer to inner 1st div then image
+
+    // document.getElementById('list').addEventListener('click', function (e) {
+    //     console.log("clicked inside ul");
+    //     }, true);
+
+    // document.getElementById('nature').addEventListener('click', function (e) {
+    //     console.log('owl clicked');
+    // }, true);
+
+    // ************* to stop propogation *****************
+
+    // document.getElementById('list').addEventListener('click', function (e) {
+    //     console.log("clicked inside ul");
+    //     e.stopPropagation()
+    //     }, true);
+
+    // document.getElementById('nature').addEventListener('click', function (e) {
+    //     console.log('owl clicked');
+    //     e.stopPropagation()
+    // }, true);
+    
+    // document.getElementById('google').addEventListener('click',  (e) => {
+    //     e.preventDefault()
+    //     console.log('clicked google');
+    // })
+    
+    document.querySelector('#list').addEventListener('click', (e) => {
+        // console.log(e);
+        // console.log(e.target);
+        // console.log(e.target.parentNode);
+    })
+    
+    document.querySelector('#list').addEventListener('click', (e) => {
+        // console.log(e);
+        // console.log(e.target);
+        let removeIt = e.target.parentNode
+        // removeIt.remove()
+    })
+    // removeIt.parentNode.removeChild(removeIt)
+    // WORKS FINE WITH IMG BUT WHEN CICKED ON LI THE PARENT UL IS DELETED TO PREVENT USE tagName METHOD  
+
+    document.querySelector('#list').addEventListener('click', (e) => {
+        console.log(e.target.tagName);
+        if (e.target.tagName === 'IMG') {
+            console.log(e.target.id);
+            let removeIt = e.target.parentNode
+            removeIt.remove()
+        }
+    })
+
+
+</script>
+</html>
