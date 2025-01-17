@@ -1,0 +1,33 @@
+do js have classes
+js has classes after es6 .==> js is a prototype based languages and it is a syntactical sugar over existing prototype based inheritance
+
+object
+- collection of properties and methods
+
+--four main pillars of OOP: 
+
+-encapsulation
+-inheritance 
+-polymorphism
+-abstraction
+
+Encapsulation:
+
+Encapsulation is the concept of wrapping data and the methods that operate on the data within a single unit, called a class.
+- Think of a capsule with medicine inside. You can't directly touch the medicine; you can only take the capsule as a whole. In programming, the data (medicine) is hidden inside the class (capsule), and you interact with it through the class's methods (taking the capsule).
+
+Inheritance:
+
+Inheritance is the mechanism by which one class (child or subclass) can inherit the properties and methods of another class (parent or superclass).
+-  If you have a class Animal with a method makeSound(), you can create a subclass Dog that inherits from Animal and also adds its own method bark(). The Dog class can use the makeSound() method from Animal.
+
+Polymorphism:
+
+Polymorphism allows objects of different classes to be treated as objects of a common superclass. It also enables a single function or method to operate in different ways based on the object it is acting upon.
+- If you have a method draw() in a superclass Shape, you can have different subclasses like Circle and Square that each have their own implementation of the draw() method. When you call draw() on a Shape object, the correct method for the specific shape (circle or square) is executed.
+
+Abstraction:
+
+Definition: Abstraction is the concept of hiding the complex implementation details and showing only the necessary features of an object.
+- When you use a TV remote, you don’t need to know how the internal circuits work. You just need to know which button to press to change the channel or volume. Similarly, in programming, a class can provide simple methods for users to interact with, while hiding the complex logic behind those methods.
+
