@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Generator</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #6200ea;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #3700b3;
+        }
+        #cardContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .card {
+            background-color: #1e1e1e;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 20px;
+            width: 300px;
+            text-align: center;
+        }
+        .card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        .card h2 {
+            margin: 10px 0;
+        }
+        .card p {
+            margin: 5px 0;
+        }
+        .card a {
+            color: #bb86fc;
+            text-decoration: none;
+        }
+        .card a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Card Generator</h1>
+    <form id="info">
+        <label for="name">Enter your GitHub Username</label>
+        <input type="text" id="name" name="name" placeholder="Enter GitHub Username" required>
+        <button type="submit">Generate</button>
+    </form>
+
+    <div id="cardContainer"></div>
+
+    <script>
+        document.getElementById('info').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const userName = document.getElementById('name').value;
+            const requestUrl = `https://api.github.com/users/${userName}`;
+
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', requestUrl);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    let data = JSON.parse(xhr.responseText);
+                    const cardContainer = document.getElementById('cardContainer');
+                    cardContainer.innerHTML = ''; // Clear previous card
+
+                    const card = document.createElement('div');
+                    card.className = 'card';
+
+                    const img = document.createElement('img');
+                    img.src = data.avatar_url;
+                    card.appendChild(img);
+
+                    const name = document.createElement('h2');
+                    name.textContent = data.name || 'No name provided';
+                    card.appendChild(name);
+
+                    const username = document.createElement('p');
+                    username.textContent = `@${data.login}`;
+                    card.appendChild(username);
+
+                    const bio = document.createElement('p');
+                    bio.textContent = data.bio || 'No bio provided';
+                    card.appendChild(bio);
+
+                    const profileLink = document.createElement('a');
+                    profileLink.href = data.html_url;
+                    profileLink.textContent = 'View Profile';
+                    profileLink.target = '_blank';  
+                    card.appendChild(profileLink);
+
+                    cardContainer.appendChild(card);
+                } else if (xhr.readyState === 4 && xhr.status !== 200) {
+                    alert('User not found');
+                }
+            }
+            xhr.send();
+        });
+    </script>
+</body>
+</html>
