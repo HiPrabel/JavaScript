@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Pricing Slider</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="pricing-container">
+    <h1>Interactive Pricing Slider</h1>
+
+    <!-- Users Slider -->
+    <div class="slider-container">
+      <label for="users">Number of Users:</label>
+      <input type="range" id="user-slider" min="1" max="100" value="50" step="1">
+      <span id="user-count">50 Users</span>
+    </div>
+
+    <!-- Price Range Slider -->
+    <div class="slider-container">
+      <label for="price-range">Price Range:</label>
+      <input type="range" id="price-slider" min="10" max="500" value="250" step="10">
+      <span id="price-range-display">$250.00</span>
+    </div>
+
+    <!-- Billing Toggle -->
+    <div class="billing-toggle">
+      <span>Monthly</span>
+      <label class="switch">
+        <input type="checkbox" id="billing-toggle">
+        <span class="slider"></span>
+      </label>
+      <span>
+        <span>Annually</span> <br>
+        <span>20% OFF</span>
+      </span>
+    </div>
+
+    <!-- Final Price Display -->
+    <div class="price-display">
+      <p>Total Price <span id="price">$125.00</span></p>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
