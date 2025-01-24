@@ -12,7 +12,7 @@ function updatePrice() {
 
   // Base price per user
   const monthlyPricePerUser = maxPriceRange; 
-  const annualDiscount = 0.8; // 20% discount for annual billing
+  const annualDiscount = 0.8; //20% discount for annual billing
 
   let price = users * monthlyPricePerUser;
   if (isAnnual) {
