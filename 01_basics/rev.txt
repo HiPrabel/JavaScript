@@ -1,0 +1,105 @@
+📌 1. Data Types & Typeof Exceptions
+Primitive Data Types (Stored in stack, immutable)
+✔ Number, String, Boolean, BigInt, Symbol, null, undefined
+
+Non-Primitive (Reference) Data Types (Stored in heap)
+✔ Object, Array, Function
+
+🔴 Typeof Exceptions
+Expression	     Output	        Explanation
+typeof null	    "object"	Bug in JS (should be null)
+typeof NaN	    "number"	NaN is a special number
+typeof []	    "object"	Arrays are objects
+typeof () {}	"function"	Functions are a type of object
+typeof 123n	    "bigint"	BigInt type
+
+📌 2. Type Conversion
+🔄 String to Number
+✔ Number("33") → 33
+✔ Number("33abc") → NaN
+✔ parseInt("33.9") → 33
+
+🔄 Boolean Conversion
+✔ Boolean(1) → true, Boolean(0) → false
+✔ Boolean("") → false, Boolean("hello") → true
+✔ Boolean(null) → false, Boolean(undefined) → false
+
+🔄 Number to String
+✔ String(42) → "42"
+✔ (42).toString() → "42"
+
+📌 3. Operators & Edge Cases
+Arithmetic Operators
+✔ 2 + 2, 2 - 2, 2 * 2, 2 ** 3 (Exponentiation)
+✔ 10 / 3 → 3.333 (Floating point division)
+✔ 10 % 3 → 1 (Modulo)
+
+String Concatenation Rules
+✔ "1" + 2 + 2 → "122" (String first, everything becomes string)
+✔ 1 + 2 + "2" → "32" (Numbers first, then string)
+✔ +"" → 0 (Unary + converts empty string to number)
+✔ +true → 1, +false → 0
+
+📌 4. Comparison & Edge Cases
+✔ console.log(2 > 1); → true
+✔ "2" == 2 → true (Type coercion)
+✔ "2" === 2 → false (Strict comparison, no coercion)
+✔ null > 0 → false
+✔ null == 0 → false
+✔ null >= 0 → true (Comparison converts null to 0)
+
+📌 5. Strings & Methods
+✔ str.length, str.toUpperCase(), str.toLowerCase()
+✔ "hello".charAt(1) → 'e'
+✔ "hello".indexOf('l') → 2
+✔ "hello".slice(1,3) → "el" (Supports negative index)
+✔ " hello ".trim() → "hello" (Removes spaces)
+✔ "Peter_Parker".replace('_', ' ') → "Peter Parker"
+✔ "apple is a fruit".split(' ') → ["apple", "is", "a", "fruit"]
+
+📌 6. Numbers & Math
+✔ 100..toString() → "100"
+✔ (123.456).toFixed(2) → "123.46"
+✔ (123.456).toPrecision(3) → "123"
+✔ 1000000.toLocaleString('en-IN') → "10,00,000"
+
+Math Methods
+✔ Math.abs(-6.5) → 6.5
+✔ Math.round(6.5) → 7
+✔ Math.ceil(6.2) → 7
+✔ Math.floor(6.9) → 6
+✔ Math.min(1,4,8) → 1, Math.max(1,4,8) → 8
+✔ Math.random() → Random between 0-1
+✔ Math.floor(Math.random() * (max - min + 1)) + min → Random between min & max
+
+📌 7. Dates & Time
+✔ let d = new Date(); → Current date & time
+✔ new Date(2023, 0, 15); → Jan 15, 2023
+✔ new Date("2023-04-14"); → Apr 14, 2023
+✔ Date.now() → Timestamp (ms since 1970)
+✔ Math.round(Date.now() / 1000) → Timestamp in seconds
+
+Date Methods
+✔ date.getFullYear(), date.getMonth() + 1 (Months start from 0)
+✔ date.getDay() → 0 (Sunday) to 6 (Saturday)
+✔ date.toLocaleString('default', { weekday: "long" }) → "Sunday"
+
+📌 8. Special Questions & Exceptions
+Concept	            	        Answer
+typeof null		        "object" (Bug in JS)
+typeof NaN	            "number" (NaN is a special number)
+0 == "0"	            true (Type coercion)
+null == undefined	    true (Both are falsy)
+null === undefined	    false (Strict comparison)
+true + true		        2 (1 + 1)
+[] == []		        false (Different memory references)
+{} + []		            0 (Weird type coercion)
+[] + {}		            "[object Object]" (String conversion)
+
+🚀 Quick Tips 
+✅ Primitive vs Non-Primitive: Primitive (Stack), Non-Primitive (Heap)
+✅ Falsy Values: 0, "", null, undefined, NaN, false
+✅ Strict vs Loose Equality: === (No coercion), == (Coercion)
+✅ Math.random() formula: (Math.random() * (max - min + 1)) + min
+✅ JavaScript has Automatic Type Conversion (Implicit Coercion)
+✅ null behaves weirdly in comparisons (null >= 0 is true but null > 0 is false)
