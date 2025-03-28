@@ -1,0 +1,143 @@
+🔹 Arrays
+✅ Declaration:
+
+eg.
+const arr = [1, 2, 3, "text", true]; 
+const arr2 = new Array(1, 2, 3);
+✅ Operations:
+
+arr.push(4), arr.pop() → Add/remove from end
+
+arr.unshift(0), arr.shift() → Add/remove from start
+
+arr.includes(3), arr.indexOf(3) → Check presence
+
+arr.join() → Convert to string
+
+arr.slice(1, 3) → Extracts (does not modify)
+
+arr.splice(1, 2) → Removes (modifies original)
+
+✅ Merging Arrays:
+
+eg.
+const newArr = arr.concat(arr2); // Only two arrays  
+const spreadArr = [...arr, ...arr2]; // Multiple arrays  
+✅ Flattening Arrays:
+
+eg.
+const deepArr = [1, [2, [3, 4]]];
+deepArr.flat(Infinity);
+✅ Array Utility Methods:
+
+eg.
+Array.isArray([]); // true  
+Array.from("text"); // ['t', 'e', 'x', 't']  
+Array.of(1, 2, 3); // [1, 2, 3]  
+🔹 Objects
+✅ Declaration:
+
+eg.
+const obj = { name: "John", age: 25, email: "test@mail.com" };
+✅ Accessing:
+
+eg.
+obj.name;  // Dot notation  
+obj["age"];  // Bracket notation  
+✅ Symbols in Objects:
+
+eg.
+const sym = Symbol("key");
+const obj2 = { [sym]: "value" };
+✅ Methods on Objects:
+
+eg.
+Object.keys(obj); // Get keys  
+Object.values(obj); // Get values  
+Object.entries(obj); // Convert to array  
+obj.hasOwnProperty("age"); // Check property  
+✅ Merging Objects:
+
+eg.
+const newObj = Object.assign({}, obj1, obj2);
+const spreadObj = { ...obj1, ...obj2 };
+✅ Object Destructuring:
+
+eg.
+const { name: userName, age } = obj;  
+🔹 Functions
+✅ Regular Function:
+
+eg.
+function add(a, b) {
+  return a + b;
+}
+✅ Default Parameters:
+
+eg.
+function greet(name = "Guest") {
+  return `Hello ${name}`;
+}
+✅ Rest Parameters:
+
+eg.
+function sum(...nums) { return nums.reduce((a, b) => a + b); }
+✅ Arrow Functions:
+
+eg.
+const add = (a, b) => a + b;
+const getObj = () => ({ key: "value" }); // Wrap with ()
+✅ Function Hoisting:
+
+eg.
+console.log(test()); // Works  
+function test() { return "Hoisted"; }
+
+test2(); // ❌ Error  
+const test2 = function() { return "Not Hoisted"; };
+🔹 this Keyword
+✅ Inside Objects:
+
+eg.
+const user = { name: "Sam", greet() { console.log(this.name); } };
+user.greet(); // "Sam"
+✅ Inside Functions:
+
+eg.
+function check() { console.log(this); }  
+check(); // Global `this` (Window in browser)  
+
+const arrowCheck = () => console.log(this);
+arrowCheck(); // Inherits from surrounding scope
+
+🔹 Immediately Invoked Function Expression (IIFE)
+✅ Syntax & Benefits:
+
+Executes immediately
+
+Prevents global scope pollution
+
+eg.
+(function() { console.log("IIFE Example"); })();  
+(() => console.log("Arrow IIFE"))(); 
+
+🎯 Quick Comparison Table
+Feature	           var	     let	 const
+Scope	        Function	Block    Block
+Reassignable?	✅ Yes	  ✅ Yes	  ❌ No
+Hoisted?	    ✅ Yes	  ❌ No	  ❌ No
+
+🎯 Final Prep Notes
+✅ Arrays → Push, Pop, Slice, Splice, Concat, Flat
+✅ Objects → Keys, Values, Entries, Merge, Destructuring
+✅ Functions → Default Params, Rest, Arrow, Hoisting
+✅ this → Object methods, Regular vs Arrow
+✅ IIFE → Immediate execution, Avoids global pollution
+
+💡 Best practice: Use const for constants, let for variables, and avoid var. 🚀
+
+    function        Regular        Arrow
+this reference        ✅       global/Window
+arguments/empty       ✅       rest (...args)
+constructor/new       ✅            not
+hoisting              ✅            not

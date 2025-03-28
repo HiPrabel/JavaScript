@@ -17,7 +17,7 @@ const example = {
 }
 
 // console.log(example.age);
-// console.log(example['name']); 
+// console.log(example['name']); // always pass a string while accessing using this method
 //important how to declare symbol in object use [] and declare it before
 // console.log(typeof example.mySym);
 // console.log(example[mySym]); //symbols always declared and accessed using square brackets
@@ -91,6 +91,7 @@ const course = {
 
 // console.log(course.coursePrice); //looks messy when more elements
 
+// const {coursePrice} = course
 // const {coursePrice : price} = course // const {originalName : newName} = objectName
 // console.log(price);
 
