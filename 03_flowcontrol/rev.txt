@@ -1,0 +1,106 @@
+1. for Loop
+Traditional loop: for (let i = 0; i <= 10; i++) { console.log(i); }
+
+Best for cases when index manipulation is required.
+
+2. for...of Loop (Iterates Over Values)
+Used for iterating over arrays, strings, Maps, Sets (iterables).
+
+Example:
+
+
+for (const num of [1, 2, 3]) { console.log(num); }
+3. for...in Loop (Iterates Over Keys/Indexes)
+Used for objects & arrays (keys or indexes).
+
+Example (Object):
+
+
+for (const key in { a: 1, b: 2 }) { console.log(key); } // Outputs: a, b
+Example (Array):
+
+
+for (const index in ['A', 'B']) { console.log(index); } // Outputs: 0, 1
+4. forEach() (Array Method)
+Iterates over array elements but does not return anything.
+
+Example:
+
+
+[1, 2, 3].forEach(num => console.log(num));
+Cannot use return inside forEach(), use map() or filter() instead.
+
+5. filter() (Returns New Array with Condition Matching Elements)
+Example:
+
+
+const nums = [1, 2, 3, 4, 5].filter(num => num > 2);
+console.log(nums); // [3, 4, 5]
+✅ Best for extracting specific elements.
+
+6. map() (Returns New Transformed Array)
+Example:
+
+
+const nums = [1, 2, 3].map(num => num * 2);
+console.log(nums); // [2, 4, 6]
+✅ Best for modifying elements without changing the original array.
+
+7. Method Chaining (map() -> map() -> filter())
+
+eg.
+const newNums = [1, 2, 3, 4]
+  .map(num => num * 10)  // [10, 20, 30, 40]
+  .map(num => num + 1)   // [11, 21, 31, 41]
+  .filter(num => num >= 21);  // [21, 31, 41]
+✅ Improves code readability & optimization.
+
+8. reduce() (Reduces Array to a Single Value - Sum, Avg, etc.)
+Example:
+
+
+const total = [1, 2, 3, 4, 5].reduce((acc, num) => acc + num, 0);
+console.log(total); // 15
+✅ Used for calculations like sum, multiplication, object processing.
+
+9. Shopping Cart Use Case (Using reduce())
+
+eg.
+const cart = [
+    { name: 'Book 1', price: 800 },
+    { name: 'Book 2', price: 900 }
+];
+const totalPrice = cart.reduce((acc, item) => acc + item.price, 0);
+console.log(totalPrice); // 1700
+✅ Best for calculating total cost, averages, analytics.
+
+
+Feature	                    forEach()	      map()	                filter()              reduce()
+Returns	                    Nothing	        New array	            New array	        Single value
+Use Case	                Iteration	Modify elements	    Extract matching elements	Sum, Avg, etc.
+Modifies Original Array?	❌ No	        ❌ No	               ❌ No	                ❌ No
+
+
+Quick Q&A
+
+✅ Q1: When to use for...of vs for...in?
+
+for...of → Iterates over values (arrays, strings, maps).
+
+for...in → Iterates over keys (objects, indexes in arrays).
+
+✅ Q2: Difference between map() and forEach()?
+
+map() returns a new array, forEach() does not return anything.
+
+✅ Q3: What is method chaining?
+
+Combining methods like map().filter().reduce() for optimized transformations.
+
+✅ Q4: Why is reduce() useful?
+
+Used to compute a single value from an array (sum, average, max, min, etc.).
+
+✅ Q5: Can map(), filter(), reduce() modify the original array?
+
+❌ No, they always return a new array/value.
