@@ -1,0 +1,83 @@
+1. What is DOM?
+DOM (Document Object Model) is an interface that allows JavaScript to interact with HTML & CSS.
+
+It represents the document as a tree structure where elements are nodes.
+
+JavaScript can create, modify, and delete elements dynamically using the DOM.
+
+2. Selecting Elements (Querying the DOM)
+A. document.getElementById() - Selects an element by ID
+
+eg.
+const title = document.getElementById("main-title");
+console.log(title); // Logs the element with id "main-title"
+✅ Returns a single element (if found).
+
+B. document.getElementsByClassName() - Selects elements by class
+
+eg.
+const items = document.getElementsByClassName("item");
+console.log(items); // Returns an HTMLCollection (array-like)
+✅ Returns a collection of elements (HTMLCollection).
+
+C. document.getElementsByTagName() - Selects elements by tag name
+
+eg.
+const paragraphs = document.getElementsByTagName("p");
+console.log(paragraphs); // Returns all <p> elements
+✅ Returns an HTMLCollection (array-like).
+
+D. document.querySelector() - Selects the first matching element
+
+eg.
+const firstItem = document.querySelector(".item");
+console.log(firstItem); // Logs the first element with class "item"
+✅ Returns a single element (the first match).
+
+E. document.querySelectorAll() - Selects all matching elements
+
+eg.
+const allItems = document.querySelectorAll(".item");
+console.log(allItems); // Returns a NodeList of all matching elements
+✅ Returns a NodeList (which is iterable).
+
+3. Modifying Elements (Changing Content & Attributes)
+A. Changing Inner Content
+
+eg.
+const heading = document.getElementById("main-title");
+heading.innerText = "Updated Title"; // Changes text
+heading.innerHTML = "<span>Updated Title</span>"; // Can set HTML
+✅ innerText changes text, innerHTML sets raw HTML.
+
+B. Changing Attributes (setAttribute() & getAttribute())
+
+eg.
+const link = document.querySelector("a");
+link.setAttribute("href", "https://example.com");
+console.log(link.getAttribute("href")); // Logs updated URL
+✅ Use setAttribute() to change attributes dynamically.
+
+C. Changing Styles
+
+eg.
+const box = document.getElementById("box");
+box.style.color = "red";
+box.style.backgroundColor = "yellow";
+✅ CSS properties use camelCase (backgroundColor instead of background-color).
+
+4. Creating and Removing Elements
+A. Creating an Element (document.createElement())
+
+eg.
+const newDiv = document.createElement("div");
+newDiv.innerText = "I am a new div!";
+document.body.appendChild(newDiv); // Adds to the end of <body>
+✅ Use appendChild() to add an element inside a parent.
+
+B. Removing an Element (remove())
+
+eg.
+const removeItem = document.querySelector(".item");
+removeItem.remove(); // Removes the element from DOM
+✅ remove() deletes the element from the DOM.
