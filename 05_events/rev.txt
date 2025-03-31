@@ -1,0 +1,124 @@
+5. Event Handling in DOM
+A. Inline Event Handling (Not Recommended)
+
+eg.
+<button onclick="alert('Button Clicked!')">Click Me</button>
+❌ Not recommended because it mixes HTML and JS.
+
+B. addEventListener() (Best Practice)
+
+eg.
+const btn = document.querySelector("button");
+btn.addEventListener("click", function () {
+    alert("Button Clicked!");
+});
+✅ Best method for handling events dynamically.
+
+6. Event Types
+Event	    Description
+click	    Fires when an element is clicked
+mouseover	Fires when the mouse hovers over an element
+keydown	    Fires when a key is pressed
+keyup	    Fires when a key is released
+submit	    Fires when a form is submitted
+focus	    Fires when an input field is focused
+blur	    Fires when an input field loses focus
+Example (Event on keydown):
+
+
+document.addEventListener("keydown", function (event) {
+    console.log(`Key pressed: ${event.key}`);
+});
+7. Event Bubbling vs Event Capturing
+A. Event Bubbling (Default)
+Events propagate from child to parent.
+
+Example:
+
+
+document.getElementById("child").addEventListener("click", function () {
+    console.log("Child Clicked");
+});
+
+document.getElementById("parent").addEventListener("click", function () {
+    console.log("Parent Clicked");
+});
+Output when clicking child:
+
+eg.
+Child Clicked
+Parent Clicked
+B. Event Capturing (useCapture: true)
+Events propagate from parent to child.
+
+eg.
+document.getElementById("parent").addEventListener(
+    "click",
+    function () {
+        console.log("Parent Clicked");
+    },
+    true // Capturing Mode
+);
+8. Preventing Default Behavior
+Example: Preventing a form from submitting
+
+
+document.querySelector("form").addEventListener("submit", function (event) {
+    event.preventDefault(); // Stops form from submitting
+    console.log("Form submission prevented!");
+});
+9. Delegated Event Handling (Best for Dynamic Elements)
+Useful when elements are added dynamically.
+
+Instead of adding event listeners to multiple child elements, attach one listener to a parent:
+
+eg.
+document.getElementById("list").addEventListener("click", function (event) {
+    if (event.target.tagName === "LI") {
+        console.log(`Clicked on: ${event.target.innerText}`);
+    }
+});
+✅ More efficient than adding separate listeners to each <li>.
+
+10. Class Manipulation (classList Methods)
+
+Method	                                    Description
+element.classList.add("className")	        Adds a class
+element.classList.remove("className")	    Removes a class
+element.classList.toggle("className")	    Adds/removes a class
+element.classList.contains("className")	    Checks if a class exists
+
+Example:
+
+
+const box = document.getElementById("box");
+box.classList.add("highlight");
+
+🔥 Q&A 🔥
+✅ Q1: Difference between innerText and innerHTML?
+
+innerText → Changes only text.
+
+innerHTML → Can include HTML tags.
+
+✅ Q2: Difference between getElementById() and querySelector()?
+
+getElementById() → Faster, returns single element.
+
+querySelector() → More flexible, supports CSS selectors.
+
+✅ Q3: How do you prevent default form submission?
+
+Use event.preventDefault().
+
+✅ Q4: How to add event listeners to multiple elements?
+
+Use forEach() with querySelectorAll():
+
+eg.
+document.querySelectorAll("button").forEach(btn => {
+    btn.addEventListener("click", () => console.log("Clicked!"));
+});
+✅ Q5: How does event delegation improve performance?
+
+Attaches one event listener to a parent instead of multiple child elements.
